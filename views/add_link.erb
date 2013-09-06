@@ -1,0 +1,24 @@
+﻿<html>
+<body>
+<form method="post" action="add" id="form">
+Enter url<input type="text" name="url_to_add" id="url_to_add" /><br />
+Enter login<input type="text" name="login" id="login" /><br />
+Enter password<input type="password" name="password" id="password" /><br />
+
+ <script type="text/javascript"
+       src="http://www.google.com/recaptcha/api/challenge?k=your_public_key">
+    </script>
+    <noscript>
+       <iframe src="http://www.google.com/recaptcha/api/noscript?k=your_public_key"
+           height="300" width="500" frameborder="0"></iframe><br>
+       <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+       </textarea>
+       <input type="hidden" name="challenge"
+           value="challenge">
+    </noscript>
+
+<input type="submit" value="add" /><br />
+</form>
+</body>
+</html>
+
