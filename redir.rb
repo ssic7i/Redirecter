@@ -9,9 +9,10 @@ set :bind, '0.0.0.0'
 use Rack::Recaptcha, :public_key => 'key', :private_key => 'key'
 helpers Rack::Recaptcha::Helpers
 
-
+$max_len_random_string = 6
 Redirecter_path = 'path_to_redirecter_folder'
 Url_files = 'urls/'
+Alphabet_cur = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 get '/' do
   'Hello!'
@@ -46,8 +47,14 @@ post '/add' do
       login_pass_file.close
     
       loop do
+        random_name = ''
         path_to_new_file = ''
-        random_name = (rand(9999999999)+1).to_s
+        len_random_string = rand($max_len_random_string)+1
+        i = 0
+        while i < len_random_string do
+          random_name = random_name + Alphabet_cur[rand(Alphabet_cur.size)]
+          i = i+1
+        end
         path_to_new_file = Redirecter_path + Url_files + random_name
         break if !(FileTest::exists?(path_to_new_file))
       end
