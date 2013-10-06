@@ -2,14 +2,10 @@ Redirecter
 ==========
 Аналог сокращателя ссылок. Поддерживает добавление ссылок через авторизацию без https с анти-спам проверкой с помощью 
 recapcha.<br>
-Используются следующие гемы:<br>
-'sinatra'<br>
-'erb'<br>
-'rack/recaptcha' ( https://github.com/achiu/rack-recaptcha )<br>
 <br>
 <br>
 Для работы необходимо:<br>
- 1) Вставить приватный и публичный ключи в redir.rb <br>
+ 1) Вставить приватный и публичный ключи в redir_https.rb <br>
  2) Вставить публиный ключ в views/add_link.erb (https://developers.google.com/recaptcha/docs/display).<br>
  3) Вставить свой домен в views/new_link.erb <br>
  4) Указать в redir.rb путь к redir.rb, он используется при текущей организации для доступа к файлу паролей и файлам с 
